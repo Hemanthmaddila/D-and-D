@@ -1,0 +1,39 @@
+# Dungeon Master's Oracle Configuration File
+# This file contains default configuration values
+
+application:
+  name: "Dungeon Master's Oracle"
+  version: "1.0.0"
+  debug: true
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8080
+  workers: 4
+  timeout: 120
+
+# RAG System Configuration
+rag:
+  model_name: "gemini-pro"
+  temperature: 0.7
+  max_retries: 3
+  chunk_size: 1000
+  chunk_overlap: 150
+
+# Database Configuration
+database:
+  dataset_id: "dnd_data"
+  table_id: "monsters"
+  location: "US"
+
+# Vector Store Configuration
+vector_store:
+  similarity_threshold: 0.75
+  max_documents: 10
+  embedding_model: "textembedding-gecko@001"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s" 

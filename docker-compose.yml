@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  dm-oracle:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - PROJECT_ID=${PROJECT_ID:-your-project-id}
+      - DATASET_ID=${DATASET_ID:-dnd_data}
+      - TABLE_ID=${TABLE_ID:-monsters}
+      - DATA_BUCKET=${DATA_BUCKET:-your-data-bucket}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - ENVIRONMENT=development
+      - APP_VERSION=1.0.0
+    volumes:
+      - ./src:/app/src
+      - ~/.config/gcloud:/root/.config/gcloud:ro
+    command: ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Local BigQuery emulator for testing
+  # bigquery-emulator:
+  #   image: ghcr.io/goccy/bigquery-emulator:latest
+  #   ports:
+  #     - "9050:9050"
+  #     - "9060:9060"
+  #   command: ["bigquery-emulator", "--project", "test-project", "--port", "9050"]
+
+networks:
+  default:
+    name: dm-oracle-network 
