@@ -1,0 +1,21 @@
+# Exclude large directories and unnecessary files
+backup_before_restructure/
+.git/
+.gitignore
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+.venv/
+venv/
+*.log
+.DS_Store
+.env.local
+.env.development
+.env.test
+README.md
+DEPLOYMENT_STATUS.md
+*.md
+!requirements*.txt
+tools/ 
