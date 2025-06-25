@@ -1,0 +1,13 @@
+runtime: python311
+
+env_variables:
+  PYTHONPATH: "/workspace"
+  ENVIRONMENT: "production"
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 10
+
+resources:
+  cpu: 2
+  memory_gb: 2 
