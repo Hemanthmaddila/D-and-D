@@ -27,7 +27,7 @@ Visit the deployed API: [Coming Soon - Deploy Your Own!]
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Hemanthmaddila/D-and-D.git
+   git clone (https://github.com/Hemanthmaddila/dungeon-masters-oracle.git)
    cd dungeon-masters-oracle
    ```
 
