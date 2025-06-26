@@ -70,6 +70,7 @@ application_default_credentials.json
 data/
 *.csv
 *.txt
+!requirements*.txt
 *.json
 faiss_index/
 
